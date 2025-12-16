@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Completo - Piscina Ernestina</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 100, 200, 0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        header {
+            background: linear-gradient(to right, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 20px 15px;
+            text-align: center;
+            border-bottom: 6px solid #f59e0b;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 15px 15px;
+            opacity: 0.3;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            position: relative;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            padding: 0 10px;
+            line-height: 1.3;
+        }
+        
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.95;
+            font-weight: 300;
+            position: relative;
+            padding: 0 10px;
+        }
+        
+        .manual-section {
+            padding: 20px 15px;
+            border-bottom: 1px solid #e6f0ff;
+            transition: all 0.3s ease;
+        }
+        
+        .manual-section:hover {
+            background-color: #f8fbff;
+        }
+        
+        .manual-section:last-of-type {
+            border-bottom: none;
+        }
+        
+        h2 {
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e6f0ff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.4rem;
+            line-height: 1.3;
+        }
+        
+        h2 i {
+            color: #f59e0b;
+            background-color: #fffbeb;
+            padding: 8px;
+            border-radius: 8px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .step {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: linear-gradient(to right, #f8fbff, #ffffff);
+            border-radius: 10px;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .step:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.08);
+        }
+        
+        .step h3 {
+            color: #1e3a8a;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            line-height: 1.3;
+        }
+        
+        .step h3 i {
+            color: #f59e0b;
+        }
+        
+        .step p {
+            margin-bottom: 6px;
+            color: #444;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .note {
+            background: linear-gradient(to right, #fffbeb, #fef3c7);
+            border-left: 4px solid #f59e0b;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+            font-style: italic;
+            color: #78350f;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .note i {
+            color: #f59e0b;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        
+        .image-container {
+            background-color: #f0f9ff;
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 5px rgba(59, 130, 246, 0.1);
+        }
+        
+        .image-container:hover {
+            border-color: #1e3a8a;
+            background-color: #e0f2fe;
+            transform: translateY(-1px);
+            box-shadow: 0 5px 8px rgba(59, 130, 246, 0.15);
+        }
+        
+        .svg-icon {
+            width: 100%;
+            height: auto;
+            max-width: 400px; /* Ajuste para o SVG */
+            margin: 0 auto;
+            display: block;
+        }
+
+        .image-caption {
+            color: #374151;
+            font-style: italic;
+            font-size: 0.85rem;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+        
+        .step-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .grid-item {
+            background-color: #f8fbff;
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid #e6f0ff;
+        }
+        
+        .warning {
+            background: linear-gradient(to right, #fee2e2, #fecaca);
+            border-left: 4px solid #dc2626;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+            color: #7f1d1d;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .warning i {
+            color: #dc2626;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        
+        .wifi-config {
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            border-radius: 10px;
+            padding: 20px 15px;
+            margin: 20px 0;
+            border: 2px solid #3b82f6;
+            text-align: center;
+        }
+        
+        .wifi-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px 15px;
+            display: block;
+            margin: 10px auto;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .wifi-detail {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            margin: 12px 0;
+            padding: 8px 15px;
+            background-color: #f8fafc;
+            border-radius: 6px;
+            border-left: 3px solid #3b82f6;
+            word-break: break-all;
+        }
+        
+        .wifi-detail span {
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.85rem;
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: #f8fbff;
+            border-radius: 8px;
+        }
+        
+        .section-number {
+            background-color: #3b82f6;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .button-config {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .button-position {
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 280px;
+            margin: 0 auto;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .position-up {
+            background: linear-gradient(to bottom, #10b981, #34d399);
+            color: white;
+        }
+        
+        .position-middle {
+            background: linear-gradient(to bottom, #6b7280, #9ca3af);
+            color: white;
+        }
+        
+        .position-down {
+            background: linear-gradient(to bottom, #3b82f6, #60a5fa);
+            color: white;
+        }
+        
+        .button-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        
+        .sal-display-container {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-radius: 10px;
+            padding: 20px 15px;
+            margin: 20px 0;
+            border: 2px solid #3b82f6;
+        }
+        
+        /* Adicionando estilos para os novos botões do display de sal */
+        .btn-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .btn-f { background-color: #3b82f6; }
+        .btn-pgm { background-color: #10b981; }
+        .button-label {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+            border-bottom: 1px dashed #ddd;
+        }
+        .result-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        .status-high { background-color: #fef3c7; color: #b45309; }
+        .status-good { background-color: #d1fae5; color: #065f46; }
+        .status-low { background-color: #fce7f6; color: #831843; }
+        .status-error { background-color: #fee2e2; color: #991b1b; }
+        .led-status {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+            border: 1px solid #e0f2fe;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+        .led-indicator {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        .led-on { background-color: #3b82f6; box-shadow: 0 0 10px #3b82f6; }
+        .led-off { background-color: #6b7280; }
+        .quick-access {
+            padding: 15px;
+            background-color: #f1f8ff;
+            border-bottom: 1px solid #e6f0ff;
+        }
+        .quick-access h3 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .quick-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .quick-link {
+            background-color: #3b82f6;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .quick-link:hover {
+            background-color: #1e3a8a;
+        }
+        
+        /* Melhorias para telas maiores */
+        @media (min-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .manual-section {
+                padding: 25px;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .step-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .button-config {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            
+            .button-position {
+                width: 30%;
+                max-width: none;
+            }
+            
+            .status-indicators {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-swimming-pool"></i> Manual Completo de Operação</h1>
+            <p class="subtitle">Piscina Ernestina - Controle Automático e Manual</p>
+        </header>
+        
+        <div class="quick-access">
+            <h3><i class="fas fa-bolt"></i> Acesso Rápido</h3>
+            <div class="quick-links">
+                <a href="#botao-controle" class="quick-link">
+                    <i class="fas fa-sliders-h"></i> Botão
+                </a>
+                <a href="#programacao" class="quick-link">
+                    <i class="fas fa-robot"></i> Programação
+                </a>
+                <a href="#aspiracao" class="quick-link">
+                    <i class="fas fa-tint"></i> Aspiração
+                </a>
+                <a href="#verificacao-sal" class="quick-link">
+                    <i class="fas fa-vial"></i> Verificar Sal
+                </a>
+                <a href="#led-piscina" class="quick-link">
+                    <i class="fas fa-lightbulb"></i> LED Piscina
+                </a>
+                <a href="#aquecimento" class="quick-link">
+                    <i class="fas fa-thermometer-half"></i> Aquecimento
+                </a>
+                <a href="#wi-fi" class="quick-link">
+                    <i class="fas fa-wifi"></i> Wi-Fi
+                </a>
+            </div>
+        </div>
+        
+        <div class="manual-section" id="botao-controle">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2><i class="fas fa-sliders-h"></i> Painel de Comandos da Piscina</h2>
+            </div>
+            
+            <div class="step">
+                <h3><i class="fas fa-toggle-on"></i> Botão Preto com 3 Estágios</h3>
+                <p>O botão preto principal possui 3 posições de pressionamento distintas:</p>
+                <p><strong>Obs.:</strong> Ao pressionar, você sentirá três estágios diferentes até chegar ao final do curso.</p>
+            </div>
+            
+            <div class="button-config">
+                <div class="button-position position-up">
+                    <div class="button-icon">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+                    <h4>PRIMEIRO ESTÁGIO</h4>
+                    <p><strong>PARA CIMA</strong></p>
+                    <p>Pressione até sentir o final do curso</p>
+                    <p>Ativa o modo de programação automática</p>
+                </div>
+                
+                <div class="button-position position-middle">
+                    <div class="button-icon">
+                        <i class="fas fa-minus"></i>
+                    </div>
+                    <h4>SEGUNDO ESTÁGIO</h4>
+                    <p><strong>NO MEIO</strong></p>
+                    <p>Posição neutra</p>
+                    <p>Sistema desativado</p>
+                </div>
+                
+                <div class="button-position position-down">
+                    <div class="button-icon">
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                    <h4>TERCEIRO ESTÁGIO</h4>
+                    <p><strong>PARA BAIXO</strong></p>
+                    <p>Pressione até sentir o final do curso</p>
+                    <p>Ativa modo manual para aspiração</p>
+                </div>
+            </div>
+            
+            <div class="image-container" style="max-width: 350px; margin: 15px auto;">
+                <svg width="300" height="120" viewBox="0 0 300 120" class="svg-icon">
+                    <rect x="10" y="10" width="280" height="100" rx="8" ry="8" fill="#f8f8f8" stroke="#ccc" stroke-width="1.5"/>
+                    
+                    <g transform="translate(15, 15)" opacity="0.3">
+                            <rect x="5" y="5" width="160" height="70" rx="4" ry="4" fill="#fff" stroke="#99ccee" stroke-width="1.5"/>
+                            <text x="10" y="15" font-family="Arial" font-size="8" fill="#1e3a8a" font-weight="bold">CLORADOR</text>
+                            
+                            <rect x="120" y="10" width="35" height="25" rx="3" ry="3" fill="#333"/>
+                            <rect x="120" y="45" width="35" height="25" rx="3" ry="3" fill="#333"/>
+
+                            <rect x="10" y="25" width="100" height="40" rx="3" ry="3" fill="#1f2937"/>
+                            <text x="60" y="50" font-family="Courier New, monospace" font-size="20" fill="#99ccff" text-anchor="middle">OFF</text>
+                        </g>
+
+                        <g transform="translate(185, 20)">
+                            <rect x="0" y="0" width="40" height="80" rx="4" ry="4" fill="#1d1d1d" stroke="#000" stroke-width="1"/>
+                            <rect x="5" y="5" width="30" height="35" rx="3" ry="3" fill="#313131"/>
+                            <rect x="5" y="40" width="30" height="35" rx="3" ry="3" fill="#5a5a5a"/>                            
+                        </g>
+
+                        <g transform="translate(245, 20)" opacity="0.3">
+                            <rect x="0" y="0" width="40" height="80" rx="4" ry="4" fill="##333" stroke="#000" stroke-width="1"/>
+                            <rect x="5" y="40" width="30" height="35" rx="3" ry="3" fill="#333"/>
+                            <text x="20" y="95" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">LED</text>
+                        </g>
+                        
+
+                </svg>
+                <div class="image-caption">
+                    Painel de controle. À direita do display, ao centro, Botão Preto (3 Estágios). À direita, Botão Azul (LED).
+                </div>
+            </div>
+            
+            <div class="note">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <strong>Importante:</strong> Para operação normal diária programada, mantenha o botão na posição "PARA CIMA" (primeiro estágio). Use "PARA BAIXO" apenas quando for fazer aspiração manual ou manutenção. No meio, função desligado.
+                </div>
+            </div>
+        </div>
+        
+        <div class="manual-section" id="programacao">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2><i class="fas fa-clock"></i> Programar Mistura do Sal Automaticamente</h2>
+            </div>
+            
+            <div class="step">
+                <h3><i class="fas fa-cog"></i> Ajuste do Horário no Timer</h3>
+                <p>Para ajustar o temporizador mecânico:</p>
+                
+                <div class="step-grid">
+                    <div class="grid-item">
+                        <h4><i class="fas fa-arrow-up"></i> Passo 1</h4>
+                        <p>Coloque o botão preto no primeiro estágio (para cima).</p>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <h4><i class="fas fa-sync-alt"></i> Passo 2</h4>
+                        <p>Gire a seta azul do Timer no sentido horário até o horário atual.</p>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <h4><i class="fas fa-redo"></i> Passo 3</h4>
+                        <p>Se passar do horário, continue girando até encontrar novamente.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="image-container" style="max-width: 180px; margin: 15px auto;">
+                <svg width="180" height="180" viewBox="0 0 100 100" class="svg-icon">
+                    <circle cx="50" cy="50" r="48" fill="#f8fafc" stroke="#3b82f6" stroke-width="1.5"/>
+                    <circle cx="50" cy="50" r="45" fill="#e2e8f0"/>
+                    <g stroke="#94a3b8" stroke-width="0.5">
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(0 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(30 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(60 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(90 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(120 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(150 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(180 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(210 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(240 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(270 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(300 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(330 50 50)"/>
+                        <rect x="49" y="5" width="2" height="4" fill="#333" transform="rotate(15 50 50)"/>
+                        <rect x="49" y="5" width="2" height="4" fill="#333" transform="rotate(45 50 50)"/>
+                        <rect x="49" y="5" width="2" height="4" fill="#333" transform="rotate(75 50 50)"/>
+                        <rect x="49" y="5" width="2" height="4" fill="#333" transform="rotate(105 50 50)"/>
+                        <rect x="49" y="5" width="2" height="6" fill="#10b981" transform="rotate(285 50 50)"/>
+                        <rect x="49" y="5" width="2" height="6" fill="#10b981" transform="rotate(315 50 50)"/>
+                        <rect x="49" y="5" width="2" height="6" fill="#10b981" transform="rotate(345 50 50)"/>
+                    </g>
+                    <path d="M 50 15 L 45 25 L 55 25 Z" fill="#3b82f6" transform="rotate(-15 50 50)"/>
+                    <line x1="50" y1="50" x2="50" y2="15" stroke="#3b82f6" stroke-width="2" transform="rotate(-15 50 50)"/>
+                    <line x1="50" y1="50" x2="50" y2="20" stroke="#4b5563" stroke-width="3" stroke-linecap="round" transform="rotate(10 50 50)"/>
+                    <line x1="50" y1="50" x2="75" y2="50" stroke="#4b5563" stroke-width="2" stroke-linecap="round" transform="rotate(180 50 50)"/>
+                    <circle cx="50" cy="50" r="6" fill="white" stroke="#3b82f6" stroke-width="1"/>
+                    <text x="50" y="65" font-family="Arial" font-size="8" font-weight="bold" fill="#3b82f6" text-anchor="middle">iGUi</text>
+                </svg>
+                <div class="image-caption">
+                    Timer Mecânico iGUi. Gire no sentido horário (seta azul) para ajustar o horário atual.
+                </div>
+            </div>
+            
+            <div class="note">
+                <i class="fas fa-lightbulb"></i>
+                <div>
+                    <strong>Dica:</strong> O timer funciona como um relógio mecânico. A seta azul deve sempre apontar para a hora atual para que a programação funcione corretamente.
+                </div>
+            </div>
+        </div>
+        
+        <div class="manual-section">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2><i class="fas fa-calendar-alt"></i> Definir Horário Automático</h2>
+            </div>
+            
+            <div class="step">
+                <h3><i class="fas fa-hand-point-up"></i> Programação dos Períodos de Mistura do Sal</h3>
+                <p>Para definir os horários em que o sistema fará a mistura do sal automaticamente:</p>
+                
+                <div class="step-grid">
+                    <div class="grid-item">
+                        <h4><i class="fas fa-fingerprint"></i> Localização dos Interruptores</h4>
+                        <p>Pinos pretos localizados na borda do temporizador mecânico.</p>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <h4><i class="fas fa-hand-paper"></i> Método de Ajuste</h4>
+                        <p>Utilize os dedos(Unha) para levantar (ativar) ou abaixar (desativar) cada pino.</p>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <h4><i class="fas fa-clock"></i> Duração por Pino</h4>
+                        <p>Cada pino representa um período de funcionamento.</p>
+                        <p>Exemplo: levantar todos os pinos no intervalo das 15hs até 16hs</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="image-container" style="max-width: 180px; margin: 15px auto;">
+                <svg width="180" height="180" viewBox="0 0 100 100" class="svg-icon">
+                    <circle cx="50" cy="50" r="48" fill="#f8fafc" stroke="#3b82f6" stroke-width="1.5"/>
+                    <circle cx="50" cy="50" r="45" fill="#e2e8f0"/>
+                    <g stroke="#94a3b8" stroke-width="0.5">
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(0 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(30 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(60 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(90 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(120 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(150 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(180 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(210 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(240 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(270 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(300 50 50)"/>
+                        <line x1="50" y1="5" x2="50" y2="10" transform="rotate(330 50 50)"/>
+                        <rect x="49" y="5" width="2" height="6" fill="#333" transform="rotate(15 50 50)"/>
+                        <rect x="49" y="5" width="2" height="6" fill="#333" transform="rotate(45 50 50)"/>
+                        <rect x="49" y="5" width="2" height="6" fill="#10b981" transform="rotate(75 50 50)"/>
+                        <rect x="49" y="5" width="2" height="6" fill="#10b981" transform="rotate(105 50 50)"/>
+                        <rect x="49" y="5" width="2" height="6" fill="#333" transform="rotate(135 50 50)"/>
+                        <rect x="49" y="5" width="2" height="6" fill="#10b981" transform="rotate(165 50 50)"/>
+                        <rect x="49" y="5" width="2" height="6" fill="#10b981" transform="rotate(195 50 50)"/>
+                        <rect x="49" y="5" width="2" height="6" fill="#333" transform="rotate(225 50 50)"/>
+                        <rect x="49" y="5" width="2" height="6" fill="#10b981" transform="rotate(255 50 50)"/>
+                        <rect x="49" y="5" width="2" height="6" fill="#10b981" transform="rotate(285 50 50)"/>
+                        <rect x="49" y="5" width="2" height="6" fill="#10b981" transform="rotate(315 50 50)"/>
+                        <rect x="49" y="5" width="2" height="6" fill="#333" transform="rotate(345 50 50)"/>
+                    </g>
+                    <path d="M 50 15 L 45 25 L 55 25 Z" fill="#3b82f6" transform="rotate(-90 50 50)"/>
+                    <line x1="50" y1="50" x2="50" y2="15" stroke="#3b82f6" stroke-width="2" transform="rotate(-90 50 50)"/>
+                    <line x1="50" y1="50" x2="50" y2="20" stroke="#4b5563" stroke-width="3" stroke-linecap="round" transform="rotate(10 50 50)"/>
+                    <line x1="50" y1="50" x2="75" y2="50" stroke="#4b5563" stroke-width="2" stroke-linecap="round" transform="rotate(180 50 50)"/>
+                    <circle cx="50" cy="50" r="6" fill="white" stroke="#3b82f6" stroke-width="1"/>
+                    <text x="50" y="65" font-family="Arial" font-size="8" font-weight="bold" fill="#3b82f6" text-anchor="middle">iGUi</text>
+                </svg>
+                <div class="image-caption">
+                    Temporizador iGUi. Pinos levantados = temporizador ativos. Pinos abaixados = temporizador inativo.
+                </div>
+            </div>
+            
+            <div class="note">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <strong>Configuração Recomendada:</strong> Levante os pinos nos períodos do dia em que deseja que o sistema opere. Configure 1 período de 60 minutos por dia para manutenção eficiente do sal.
+                </div>
+            </div>
+        </div>
+        
+        <div class="manual-section" id="aspiracao">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2><i class="fas fa-tint"></i> Aspiração da Piscina</h2>
+            </div>
+            
+            <div class="step">
+                <h3><i class="fas fa-hand-paper"></i> Preparação do Sistema</h3>
+                <p>Antes de começar a aspirar a piscina:</p>
+                
+                <div class="step-grid">
+                    
+                    <div class="grid-item">
+                        <h4><i class="fas fa-filter"></i> Filtro</h4>
+                        <p>Retire a cestinha e instale o filtro de tecido cinza.</p>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <h4><i class="fas fa-wind"></i> Retirar Ar</h4>
+                        <p>Retire todo o ar da mangueira mergulhando ela na piscina antes de conectar no adaptador tipo funil.</p>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <h4><i class="fas fa-plug"></i> Mangueira</h4>
+                        <p>Instale a mangueira pelo buraco dentro da piscina para fora até a  caixa branca.</p>
+                    </div>
+                                        
+                </div>
+            </div>
+            
+            <div class="image-container" style="max-width: 100px; margin: 15px auto;">
+                <svg width="100" height="120" viewBox="0 0 100 120" class="svg-icon">
+                    <defs>
+                        <pattern id="fabricPattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <line x1="0" y1="0" x2="10" y2="10" stroke="#708090" stroke-width="0.5" opacity="0.5"/>
+                            <line x1="0" y1="10" x2="10" y2="0" stroke="#708090" stroke-width="0.5" opacity="0.5"/>
+                        </pattern>
+                    </defs>
+                    <ellipse cx="50" cy="15" rx="40" ry="8" fill="#4b5563" stroke="#1f2937" stroke-width="2"/>
+                    <path d="M 10 18 C 10 30, 90 30, 90 18 L 85 110 C 85 115, 15 115, 15 110 L 10 18" fill="url(#fabricPattern)" stroke="#6b7280" stroke-width="1"/>
+                    <ellipse cx="50" cy="110" rx="35" ry="5" fill="#4b5563" stroke="#1f2937" stroke-width="1"/>
+                    <rect x="45" y="5" width="10" height="10" rx="2" ry="2" fill="#9ca3af"/>
+                </svg>
+                <div class="image-caption">
+                    Filtro de tecido cinza para ser instalado no lugar da cestinha para aspiração.
+                </div>
+            </div>
+            
+            <div class="step">
+                <h3><i class="fas fa-play-circle"></i> Ativação do Sistema</h3>
+                <p>Após instalar a mangueira e o filtro:</p>
+                
+                <div class="step-grid">
+                    <div class="grid-item">
+                        <h4><i class="fas fa-arrow-down"></i> Botão Manual</h4>
+                        <p>Coloque o botão preto pressionado para baixo (terceiro estágio).</p>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <h4><i class="fas fa-faucet"></i> Registro Retorno</h4>
+                        <p>Abra o registro de RETORNO (posição vertical).</p>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <h4><i class="fas fa-ban"></i> Outros Registros</h4>
+                        <p>Mantenha os outros registros na posição horizontal (fechados).</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="visual-box visual-valve">
+                <div class="visual-icon-large" style="background-color: #10b981; color: white;">
+                    <i class="fas fa-faucet"></i>
+                </div>
+                <p class="visual-step">REGISTRO DE RETORNO</p>
+                <p>Abra completamente para aspiração</p>
+                <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px; align-items: center;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="background-color: #10b981; color: white; padding: 8px 15px; border-radius: 5px; font-weight: bold;">
+                            <i class="fas fa-check-circle"></i> RETORNO: ABERTO
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="background-color: #ef4444; color: white; padding: 8px 15px; border-radius: 5px; font-weight: bold;">
+                            <i class="fas fa-times-circle"></i> OUTROS: FECHADOS
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>Atenção de Segurança:</strong> Certifique-se de que a mangueira está completamente cheia de água e sem bolhas de ar antes de ligar o sistema na posição manual.
+                </div>
+            </div>
+        </div>
+        
+        <div class="manual-section" id="verificacao-sal">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2><i class="fas fa-vial"></i> Verificação da Concentração de Sal</h2>
+            </div>
+            
+            <div class="step">
+                <h3><i class="fas fa-tachometer-alt"></i> Procedimento para Verificar o Nível de Sal</h3>
+                <p>Siga estes passos para verificar a concentração de sal na piscina:</p>
+            </div>
+            
+            <div class="salt-check-container">
+                <h3 style="text-align: center; margin-bottom: 20px; color: #78350f;">
+                    <i class="fas fa-water"></i> Passo a Passo para Verificação
+                </h3>
+                
+                <div class="button-label">
+                    <div class="btn-icon btn-f">
+                        F
+                    </div>
+                    <div>
+                        <strong>1. Pressione o botão superior "F"</strong>
+                        <p>Localizado ao lado direito do display. A palavra "SAL" irá aparecer piscando no display.</p>
+                    </div>
+                </div>
+                
+                <div class="image-container" style="max-width: 350px; margin: 15px auto;">
+                    <svg width="300" height="120" viewBox="0 0 300 120" class="svg-icon">
+                        <rect x="10" y="10" width="280" height="100" rx="8" ry="8" fill="#f8f8f8" stroke="#ccc" stroke-width="1.5"/>
+                        
+                        <g transform="translate(15, 15)">
+                            <rect x="5" y="5" width="160" height="70" rx="4" ry="4" fill="#fff" stroke="#99ccee" stroke-width="1.5"/>
+                            <text x="10" y="15" font-family="Arial" font-size="8" fill="#1e3a8a" font-weight="bold">CLORADOR</text>
+                            
+                            <rect x="120" y="10" width="35" height="25" rx="3" ry="3" fill="#333"/>
+                            <text x="137" y="27" font-family="Arial" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">F</text>
+                            
+                            <rect x="120" y="45" width="35" height="25" rx="3" ry="3" fill="#333"/>
+                            <text x="137" y="62" font-family="Arial" font-size="10" fill="#fff" text-anchor="middle" font-weight="bold">PGM</text>
+
+                            <rect x="10" y="25" width="100" height="40" rx="3" ry="3" fill="#1f2937"/>
+                            <text x="60" y="50" font-family="Courier New, monospace" font-size="20" fill="#99ccff" text-anchor="middle" id="salDisplay">SAL</text>
+                            <text x="35" y="75" font-family="Arial" font-size="8" fill="#1e3a8a" font-weight="bold">iGUi</text>
+                        </g>
+
+                        <g transform="translate(185, 20)" opacity="0.3">
+                            <rect x="0" y="0" width="40" height="80" rx="4" ry="4" fill="#f0f0f0" stroke="#000" stroke-width="1"/>
+                            <rect x="5" y="40" width="30" height="35" rx="3" ry="3" fill="#333"/>
+                        </g>
+                        
+                        <g transform="translate(245, 20)" opacity="0.3">
+                            <rect x="0" y="0" width="40" height="80" rx="4" ry="4" fill="#f0f0f0" stroke="#000" stroke-width="1"/>
+                            <rect x="5" y="40" width="30" height="35" rx="3" ry="3" fill="#3b82f6"/>
+                        </g>
+                    </svg>
+                    <div class="image-caption">
+                        Display digital do Clorador iGUi. Pressione "F" para começar a verificação do sal.
+                    </div>
+                </div>
+                
+                <div class="button-label">
+                    <div class="btn-icon btn-pgm">
+                        PGM
+                    </div>
+                    <div>
+                        <strong>2. Pressione o botão inferior "PGM"</strong>
+                        <p>Localizado abaixo do botão "F". O display mostrará uma das seguintes informações:</p>
+                    </div>
+                </div>
+                
+                <div style="margin: 20px 0;">
+                    <h4 style="color: #78350f; margin-bottom: 15px; text-align: center;">
+                        <i class="fas fa-info-circle"></i> Resultados Possíveis no Display
+                    </h4>
+                    
+                    <div class="result-box status-high">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 1.2rem;"></i>
+                        <div>
+                            <strong>HIGH</strong> - Alta concentração de sal
+                            <div style="font-size: 0.9rem; font-weight: normal; margin-top: 3px;">
+                                Reduzir a quantidade de sal na piscina
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-box status-good">
+                        <i class="fas fa-check-circle" style="font-size: 1.2rem;"></i>
+                        <div>
+                            <strong>GOOD</strong> - Concentração ideal de sal
+                            <div style="font-size: 0.9rem; font-weight: normal; margin-top: 3px;">
+                                Nível correto, manter como está
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-box status-low">
+                        <i class="fas fa-exclamation-circle" style="font-size: 1.2rem;"></i>
+                        <div>
+                            <strong>LOW</strong> - Baixa concentração de sal
+                            <div style="font-size: 0.9rem; font-weight: normal; margin-top: 3px;">
+                                Adicionar sal gradualmente à piscina
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-box status-error">
+                        <i class="fas fa-times-circle" style="font-size: 1.2rem;"></i>
+                        <div>
+                            <strong>ERRO</strong> - Piscina sem sal
+                            <div style="font-size: 0.9rem; font-weight: normal; margin-top: 3px;">
+                                Adicionar sal urgentemente e verificar sensor
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="note">
+                <i class="fas fa-lightbulb"></i>
+                <div>
+                    <strong>Recomendação:</strong> O nível ideal mantém a água limpa e segura para uso.
+                </div>
+            </div>
+        </div>
+        
+        <div class="manual-section" id="led-piscina">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h2><i class="fas fa-lightbulb"></i> Controle do LED da Piscina</h2>
+            </div>
+            
+            <div class="step">
+                <h3><i class="fas fa-toggle-on"></i> Botão Azul para Iluminação</h3>
+                <p>Para controlar a iluminação LED da piscina:</p>
+            </div>
+            
+            <div class="led-control">
+                <h3 style="text-align: center; margin-bottom: 20px; color: #0c4a6e;">
+                    <i class="fas fa-lightbulb"></i> Observação sobre o LED da Piscina
+                </h3>
+                
+                <div class="button-label">
+                    <div class="btn-icon btn-led" style="background-color: #3b82f6;">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div>
+                        <strong>Botão Azul ao lado do Botão Preto</strong>
+                        <p>Localizado à direita do display, próximo ao botão preto principal.</p>
+                    </div>
+                </div>
+                
+                <div class="image-container" style="max-width: 350px; margin: 15px auto;">
+                    <svg width="300" height="120" viewBox="0 0 300 120" class="svg-icon">
+                        <rect x="10" y="10" width="280" height="100" rx="8" ry="8" fill="#f8f8f8" stroke="#ccc" stroke-width="1.5"/>
+                        
+                        <g transform="translate(15, 15)" opacity="0.3">
+                            <rect x="5" y="5" width="160" height="70" rx="4" ry="4" fill="#fff" stroke="#99ccee" stroke-width="1.5"/>
+                            <text x="10" y="15" font-family="Arial" font-size="8" fill="#1e3a8a" font-weight="bold">CLORADOR</text>
+                            
+                            <rect x="120" y="10" width="35" height="25" rx="3" ry="3" fill="#333"/>
+                            <rect x="120" y="45" width="35" height="25" rx="3" ry="3" fill="#333"/>
+
+                            <rect x="10" y="25" width="100" height="40" rx="3" ry="3" fill="#1f2937"/>
+                            <text x="60" y="50" font-family="Courier New, monospace" font-size="20" fill="#99ccff" text-anchor="middle">OFF</text>
+                        </g>
+
+                        <g transform="translate(185, 20)" opacity="0.3">
+                            <rect x="0" y="0" width="40" height="80" rx="4" ry="4" fill="#f0f0f0" stroke="#000" stroke-width="1"/>
+                            <rect x="5" y="40" width="30" height="35" rx="3" ry="3" fill="#333"/>
+                        </g>
+                        
+                        <g transform="translate(245, 20)">
+                            <rect x="0" y="0" width="40" height="80" rx="4" ry="4" fill="#f0f0f0" stroke="#000" stroke-width="1"/>
+                            <rect x="5" y="5" width="30" height="35" rx="3" ry="3" fill="#60a5fa"/>
+                            <rect x="5" y="40" width="30" height="35" rx="3" ry="3" fill="#3b82f6"/>
+                            <text x="20" y="95" font-family="Arial" font-size="10" fill="#3b82f6" text-anchor="middle">LED</text>
+                        </g>
+                    </svg>
+                    <div class="image-caption">
+                        O botão azul (à direita) controla o LED da piscina. Pressione para Ligar/Desligar.
+                    </div>
+                </div>
+                
+                <div style="margin: 20px 0; text-align: center;">
+                    <h4 style="color: #0c4a6e; margin-bottom: 15px;">
+                        <i class="fas fa-power-off"></i> Funcionamento do Botão Azul
+                    </h4>
+                    
+                    <div class="led-status">
+                        <div class="led-indicator led-on">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div style="text-align: left;">
+                            <strong>Pressionado para cima:</strong> Liga o LED da piscina
+                            <div style="font-size: 0.9rem; margin-top: 5px;">
+                                A iluminação azul será ativada
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="led-status">
+                        <div class="led-indicator led-off">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div style="text-align: left;">
+                            <strong>Pressionar para baixo:</strong> Desliga o LED da piscina
+                            <div style="font-size: 0.9rem; margin-top: 5px;">
+                                A iluminação será desativada
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="note" style="margin-top: 20px;">
+                    <i class="fas fa-info-circle"></i>
+                    <div>
+                        <strong>Importante:</strong> O botão azul controla apenas a iluminação LED da piscina e não interfere no funcionamento do sistema de filtragem, aquecimento ou cloração. Pode ser usado independentemente da posição do botão preto principal.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>Atenção:</strong> Não deixe o LED da piscina ligado por períodos excessivamente longos (mais de 8 horas contínuas) para preservar a vida útil das lâmpadas LED.
+                </div>
+            </div>
+        </div>
+        
+        <div class="manual-section" id="aquecimento">
+            <div class="section-header">
+                <div class="section-number">7</div>
+                <h2><i class="fas fa-thermometer-half"></i> Aquecimento da Água</h2>
+            </div>
+            
+            <div class="step">
+                <h3><i class="fas fa-fire"></i> Ativação do Aquecedor</h3>
+                <p>Para utilizar o sistema de aquecimento da piscina:</p>
+                
+                <div class="step-grid">
+                    <div class="grid-item">
+                        <h4><i class="fas fa-faucet"></i> Registro Cascata</h4>
+                        <p>Gire o registro CASCATA para a posição vertical. Os demais registros deverão estar fechados (horizontal)</p>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <h4><i class="fas fa-bolt"></i> Disjuntores</h4>
+                        <p>Ligue os três últimos disjuntores movendo para cima.</p>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <h4><i class="fas fa-check-circle"></i> Verificação</h4>
+                        <p>Confirme que o sistema está circulando água normalmente.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="image-container" style="max-width: 400px; margin: 15px auto;">
+                <svg width="400" height="110" viewBox="0 0 400 110" class="svg-icon">
+                    <rect x="5" y="5" width="390" height="100" rx="8" ry="8" fill="#f3f4f6" stroke="#d1d5db" stroke-width="2"/>
+                    <line x1="15" y1="45" x2="385" y2="45" stroke="#94a3b8" stroke-width="3"/>
+                    
+                    <g transform="translate(10, 0)">
+                        <rect x="0" y="10" width="40" height="85" rx="3" ry="3" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+                        <rect x="5" y="15" width="30" height="25" rx="2" ry="2" fill="#d1d5db"/>
+                        <rect x="5" y="15" width="30" height="75" rx="2" ry="2" fill="#fff"/>
+                        <circle cx="20" cy="20" r="8" fill="#f97316"/>
+                        <text x="20" y="23" font-family="Arial" font-size="8" fill="white" text-anchor="middle" font-weight="bold">T</text>
+                        <path d="M 20 40 L 10 50 L 30 50 Z" fill="#9ca3af"/>
+                        <rect x="5" y="47" width="30" height="20" rx="2" ry="2" fill="#d1d5db"/>
+                        <text x="20" y="80" font-family="Arial" font-size="8" fill="#1e3a8a" text-anchor="middle" font-weight="bold">iGUi</text>
+                    </g>
+                    
+                    <g transform="translate(50, 0)">
+                        <rect x="0" y="10" width="40" height="85" rx="3" ry="3" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+                        <text x="20" y="27" font-family="Arial" font-size="8" fill="#1e3a8a" text-anchor="middle" font-weight="bold">iGUi</text>
+                        <rect x="5" y="47" width="30" height="20" rx="2" ry="2" fill="#6b7280"/>
+                        <rect x="7" y="50" width="26" height="14" rx="1" ry="1" fill="#1f2937"/>
+                        <text x="20" y="80" font-family="Arial" font-size="7" fill="#6b7280" text-anchor="middle">OFF</text>
+                    </g>
+                    <g transform="translate(90, 0)">
+                        <rect x="0" y="10" width="40" height="85" rx="3" ry="3" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+                        <text x="20" y="27" font-family="Arial" font-size="8" fill="#1e3a8a" text-anchor="middle" font-weight="bold">iGUi</text>
+                        <rect x="5" y="47" width="30" height="20" rx="2" ry="2" fill="#6b7280"/>
+                        <rect x="7" y="50" width="26" height="14" rx="1" ry="1" fill="#1f2937"/>
+                        <text x="20" y="80" font-family="Arial" font-size="7" fill="#6b7280" text-anchor="middle">OFF</text>
+                    </g>
+                    <g transform="translate(130, 0)">
+                        <rect x="0" y="10" width="40" height="85" rx="3" ry="3" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+                        <text x="20" y="27" font-family="Arial" font-size="8" fill="#1e3a8a" text-anchor="middle" font-weight="bold">iGUi</text>
+                        <rect x="5" y="47" width="30" height="20" rx="2" ry="2" fill="#6b7280"/>
+                        <rect x="7" y="50" width="26" height="14" rx="1" ry="1" fill="#1f2937"/>
+                        <text x="20" y="80" font-family="Arial" font-size="7" fill="#6b7280" text-anchor="middle">OFF</text>
+                    </g>
+                    <g transform="translate(210, 0)">
+                        <rect x="0" y="10" width="40" height="85" rx="3" ry="3" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+                        <text x="20" y="27" font-family="Arial" font-size="8" fill="#1e3a8a" text-anchor="middle" font-weight="bold">iGUi</text>
+                        <rect x="5" y="47" width="30" height="20" rx="2" ry="2" fill="#1f2937"/>
+                        <rect x="7" y="50" width="26" height="14" rx="1" ry="1" fill="#1f2937"/>
+                        <rect x="18" y="50" width="15" height="14" rx="1" ry="1" fill="#f87171"/>
+                        <text x="20" y="80" font-family="Arial" font-size="7" fill="#dc2626" text-anchor="middle">ON</text>
+                    </g>
+                    <g transform="translate(250, 0)">
+                        <rect x="0" y="10" width="40" height="85" rx="3" ry="3" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+                        <text x="20" y="27" font-family="Arial" font-size="8" fill="#1e3a8a" text-anchor="middle" font-weight="bold">iGUi</text>
+                        <rect x="5" y="47" width="30" height="20" rx="2" ry="2" fill="#1f2937"/>
+                        <rect x="7" y="50" width="26" height="14" rx="1" ry="1" fill="#1f2937"/>
+                        <rect x="18" y="50" width="15" height="14" rx="1" ry="1" fill="#f87171"/>
+                        <text x="20" y="80" font-family="Arial" font-size="7" fill="#dc2626" text-anchor="middle">ON</text>
+                    </g>
+                    
+                    <g transform="translate(295, 0)">
+                        <rect x="0" y="10" width="45" height="85" rx="3" ry="3" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+                        <rect x="5" y="15" width="35" height="75" rx="2" ry="2" fill="#fff"/>
+                        <text x="22.5" y="27" font-family="Arial" font-size="8" fill="#1e3a8a" text-anchor="middle" font-weight="bold">iGUi</text>
+                        <circle cx="22.5" cy="40" r="8" fill="#f97316"/>
+                        <text x="22.5" y="43" font-family="Arial" font-size="8" fill="white" text-anchor="middle" font-weight="bold">T</text>
+                        <rect x="8" y="65" width="30" height="20" rx="2" ry="2" fill="#1f2937"/>
+                        <rect x="25" y="70" width="10" height="10" rx="1" ry="1" fill="#dc2626"/>
+                        <text x="22.5" y="80" font-family="Arial" font-size="7" fill="#dc2626" text-anchor="middle">OFF</text>
+                    </g>
+        
+                    <g transform="translate(340, 0)">
+                        <rect x="0" y="10" width="55" height="85" rx="3" ry="3" fill="#e2e8f0" stroke="#e5e7eb" stroke-width="1"/>
+                        <text x="10" y="30" font-family="Arial" font-size="8" fill="#4b5563" font-weight="bold">L1</text>
+                        <text x="25" y="30" font-family="Arial" font-size="8" fill="#4b5563" font-weight="bold">3L2</text>
+                        <text x="40" y="30" font-family="Arial" font-size="8" fill="#4b5563" font-weight="bold">5L3</text>
+                        <rect x="5" y="40" width="12" height="12" fill="#cbd5e1"/>
+                        <rect x="20" y="40" width="12" height="12" fill="#cbd5e1"/>
+                        <rect x="35" y="40" width="12" height="12" fill="#cbd5e1"/>
+                        </g>
+                </svg>
+                <div class="image-caption">
+                    Painel de disjuntores (imagem representativa). Os dois disjuntores pretos com marca vermelha (ao centro-direita) controlam o aquecedor.
+                </div>
+            </div>
+            
+            <div class="warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>Segurança:</strong> Certifique-se de que o registro CASCATA está na posição correta.
+                </div>
+            </div>
+        </div>
+        
+        <div class="manual-section" id="wi-fi" style="background: linear-gradient(135deg, #f8fbff, #e6f0ff); border-top: 3px solid #3b82f6;">
+            <div class="section-header">
+                <div class="section-number">8</div>
+                <h2><i class="fas fa-wifi"></i> Configuração Wi-Fi</h2>
+            </div>
+            
+            <div class="wifi-config">
+                <h3 style="font-size: 1.3rem; margin-bottom: 15px;"><i class="fas fa-network-wired"></i> WIFI</h3>
+                                
+                <div class="visual-box visual-wifi">
+                    
+                    
+                </div>
+                
+                <div class="wifi-box">
+                    
+                    
+                    <div class="wifi-detail">
+                        <i class="fas fa-network-wired"></i> 
+                        <span>Nome da Rede (SSID):</span> Ernestina1
+                    </div>
+                    
+                    <div class="wifi-detail">
+                        <i class="fas fa-key"></i> 
+                        <span>Senha de Acesso:</span> Batalha1972
+                    </div>
+                    
+                    <div class="note" style="margin-top: 15px; text-align: left; font-size: 0.9rem;">
+                        <i class="fas fa-info-circle"></i>
+                        <div><strong>Observação importante:</strong> A letra "B" em "Batalha1972" é MAIÚSCULA. Digite exatamente como mostrado.</div>
+                    </div>
+                </div>
+                
+                <div class="wifi-simple">
+                    <p>Para conectar, use as credenciais abaixo nas configurações Wi-Fi do seu dispositivo:</p>
+                    <div class="credentials">
+                        <strong>Rede:</strong> Ernestina1<br>
+                        <strong>Senha:</strong> Batalha1972
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p><i class="fas fa-swimming-pool"></i> <strong>Manual de Operação - Piscina Ernestina</strong></p>
+        <p style="margin: 8px 0; font-size: 0.85rem;">© 2026 - Manual completo de operação do sistema da piscina</p>
+        <p style="font-size: 0.85rem;"><i class="fas fa-exclamation-circle"></i> Para dúvidas ou problemas técnicos, consulte um profissional qualificado.</p>
+    </footer>
+
+    <script>
+        // Adicionar funcionalidade para destacar seções ao clicar/toque
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.manual-section');
+            
+            sections.forEach(section => {
+                const header = section.querySelector('h2');
+                
+                if (header) {
+                    header.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        sections.forEach(s => {
+                            if (s !== section) {
+                                s.style.backgroundColor = '';
+                            }
+                        });
+                        
+                        if (section.style.backgroundColor === 'rgb(248, 251, 255)') {
+                            section.style.backgroundColor = '';
+                        } else {
+                            section.style.backgroundColor = '#f8fbff';
+                        }
+                    }, { passive: true });
+                }
+            });
+            
+            // Simulação interativa do display de sal
+            const salDisplay = document.querySelector('#salDisplay');
+            const topBtn = document.querySelector('.button-label:nth-child(2) .btn-f');
+            const bottomBtn = document.querySelector('.button-label:nth-child(4) .btn-pgm');
+            
+            let displayState = 'initial';
+            let blinkInterval;
+
+            const startBlinking = () => {
+                if (blinkInterval) clearInterval(blinkInterval);
+                blinkInterval = setInterval(() => {
+                    if (displayState === 'sal-blinking' && salDisplay) {
+                        salDisplay.style.opacity = salDisplay.style.opacity === '0.1' ? '1' : '0.1';
+                    } else {
+                        if (salDisplay) salDisplay.style.opacity = '1';
+                    }
+                }, 500);
+            };
+
+            const stopBlinking = () => {
+                if (blinkInterval) clearInterval(blinkInterval);
+                if (salDisplay) salDisplay.style.opacity = '1';
+            };
+
+            if (topBtn && bottomBtn && salDisplay) {
+                const handleTopBtn = function(e) {
+                    e.preventDefault();
+                    if (displayState === 'initial' || displayState === 'showing-result') {
+                        stopBlinking();
+                        salDisplay.textContent = "SAL";
+                        displayState = 'sal-blinking';
+                        startBlinking();
+                        
+                        setTimeout(() => {
+                            if (displayState === 'sal-blinking') {
+                                // Volta para o estado inicial após timeout se PGM não for pressionado
+                                stopBlinking();
+                                salDisplay.textContent = "8.8.8"; // Simulação de volta ao normal
+                                displayState = 'initial';
+                            }
+                        }, 5000); // 5 segundos para simular timeout
+                    }
+                };
+                
+                const handleBottomBtn = function(e) {
+                    e.preventDefault();
+                    if (displayState === 'sal-blinking') {
+                        stopBlinking();
+                        const results = ["HIGH", "GOOD", "LOW", "ERRO"];
+                        const randomResult = results[Math.floor(Math.random() * results.length)];
+                        salDisplay.textContent = randomResult;
+                        displayState = 'showing-result';
+                        
+                        setTimeout(() => {
+                            salDisplay.textContent = "8.8.8"; // Volta para o normal após resultado
+                            displayState = 'initial';
+                        }, 5000);
+                    }
+                };
+                
+                topBtn.addEventListener('touchstart', handleTopBtn, { passive: false });
+                topBtn.addEventListener('click', handleTopBtn, { passive: false });
+                
+                bottomBtn.addEventListener('touchstart', handleBottomBtn, { passive: false });
+                bottomBtn.addEventListener('click', handleBottomBtn, { passive: false });
+
+                // Inicializa o display
+                salDisplay.textContent = "8.8.8"; 
+            }
+            
+            // Animar elementos visuais
+            sections.forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(10px)';
+                section.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                
+                setTimeout(() => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, index * 80);
+            });
+            
+            // Interatividade para os grampinhos do timer (não é necessário, mas mantido para integridade)
+            const timerPins = document.querySelectorAll('.timer-pin');
+            timerPins.forEach(pin => {
+                pin.addEventListener('click', function() {
+                    if (this.classList.contains('pin-up')) {
+                        this.classList.remove('pin-up');
+                        this.classList.add('pin-down');
+                        this.innerHTML = '<i class="fas fa-arrow-down"></i>';
+                        this.setAttribute('title', 'Período inativo');
+                    } else {
+                        this.classList.remove('pin-down');
+                        this.classList.add('pin-up');
+                        this.innerHTML = '<i class="fas fa-arrow-up"></i>';
+                        this.setAttribute('title', 'Período ativo');
+                    }
+                });
+            });
+            
+            // Navegação suave para links de acesso rápido
+            document.querySelectorAll('.quick-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                        // Adicionar destaque visual temporário
+                        targetElement.style.backgroundColor = '#e6f0ff';
+                        setTimeout(() => {
+                            targetElement.style.backgroundColor = '';
+                        }, 1000);
+                    }
+                });
+            });
+            
+            
+            // Simulação do botão LED
+            const ledIndicator = document.querySelector('.led-indicator');
+            if (ledIndicator) {
+                ledIndicator.addEventListener('click', function() {
+                    if (this.classList.contains('led-on')) {
+                        this.classList.remove('led-on');
+                        this.classList.add('led-off');
+                        this.innerHTML = '<i class="fas fa-lightbulb"></i>';
+                    } else {
+                        this.classList.remove('led-off');
+                        this.classList.add('led-on');
+                        this.innerHTML = '<i class="fas fa-lightbulb"></i>';
+                    }
+                });
+            }
+            
+            // Efeitos visuais nos elementos interativos
+            const interactiveElements = document.querySelectorAll('.step, .grid-item, .button-position, .wifi-box, .status-box, .visual-box, .button-label, .result-box');
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 5px 10px rgba(0, 102, 204, 0.15)';
+                    this.style.transform = 'translateY(-3px)';
+                });
+                
+                element.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '';
+                    this.style.transform = '';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
